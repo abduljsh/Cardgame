@@ -51,6 +51,22 @@ public class CardTrick {
         }else{
             System.out.println("Oops, the card is not in the magic hand!!");
         }
+        
+        Card luckcard = new Card(2,"clubs");
+        
+        found = false;
+        
+        for(Card card:magicHand){
+            if(card.equals(luckcard)){
+                found = true;
+                break;
+            }
+        }
+        if (found){
+            System.out.println("Yay, the luckCard is in the Magic Hand!");
+        }else{
+            System.out.println("Oops, the luckCard is not in the Magic Hand!");
+        }
 // and search magicHand here
         
         //Then report the result here
@@ -58,28 +74,4 @@ public class CardTrick {
     }
     
 }
-class Card{
-    private int value;
-    private String suit;
-    
-    public Card(int value, String suit){
-        this.value = value;
-        this.suit = suit;
-    }
-    public int getValue(){
-        return value;
-    }
-    public String getSuit(){
-        return suit;
-    }
-    
-    @Override
-    public boolean equals(Object obj){
-        if(this==obj)return true;
-        if(obj==null||getClass()!=obj.getClass())return false;
-        Card card = (Card) obj;
-        
-        if(value!=card.value)return false;
-        return suit!=null? suit.equals(card.suit):card.suit==null;
-    }
-}
+

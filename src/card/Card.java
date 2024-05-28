@@ -22,27 +22,42 @@ public class Card {
     /**
      * @return the suit
      */
+   public Card(int value, String suit){
+       this.value=value;
+       this.suit=suit;
+   }
+   
+   public int getvalue(){
+       return value;
+   }
     public String getSuit() {
         return suit;
     }
+    
 
-    /**
-     * @param suit the suit to set
-     */
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj) return true;
+        if(obj == null || getClass() != obj.getClass())return false;
+        Card card = (Card) obj;
+        if(value!=card.value)return false;
+        return suit != null ? suit.equals(card.suit):card.suit == null;
+    }
+    
     public void setSuit(String suit) {
         this.suit = suit;
     }
 
-    /**
-     * @return the value
-     */
+     @Override
+     public String toString(){
+         return value + "=" + suit;
+     }
+     
     public int getValue() {
         return value;
     }
 
-    /**
-     * @param value the value to set
-     */
+
     public void setValue(int value) {
         this.value = value;
     }
